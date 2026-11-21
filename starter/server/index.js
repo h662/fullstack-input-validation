@@ -29,6 +29,8 @@ app.post("/api/todos", (req, res) => {
   res.status(501).json({ message: "아직 구현하지 않았습니다." });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, (error) => {
+  // 포트가 이미 쓰이고 있으면(서버를 두 번 켬) 에러를 그대로 보여 주고 멈춘다.
+  if (error) throw error;
   console.log(`서버 실행 중: http://localhost:${PORT}`);
 });

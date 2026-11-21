@@ -31,6 +31,7 @@ app.post("/api/todos", (req, res) => {
   res.status(201).json(todo);
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, (error) => {
+  if (error) throw error;
   console.log(`서버 실행 중: http://localhost:${PORT}`);
 });
